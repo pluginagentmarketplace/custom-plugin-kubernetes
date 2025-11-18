@@ -1,0 +1,183 @@
+{
+  "version": "1.0.0",
+  "hooks": [
+    {
+      "event": "onPluginLoaded",
+      "name": "Initialize Plugin",
+      "description": "Initialize plugin state and load learning paths",
+      "enabled": true,
+      "actions": [
+        {
+          "type": "logMessage",
+          "message": "Developer Roadmap AI Guide plugin loaded successfully"
+        },
+        {
+          "type": "initializeState",
+          "variables": {
+            "learningPaths": "loaded",
+            "userProfile": "initialized",
+            "assessmentData": "ready"
+          }
+        }
+      ]
+    },
+    {
+      "event": "onCommandExecuted",
+      "name": "Command Execution Tracking",
+      "description": "Track user command usage and engagement",
+      "enabled": true,
+      "trigger": "/learn|/explore-roles|/assess-skills|/browse-projects",
+      "actions": [
+        {
+          "type": "logAnalytics",
+          "event": "command_executed",
+          "attributes": {
+            "command": "{{commandName}}",
+            "timestamp": "{{timestamp}}",
+            "userId": "{{userId}}"
+          }
+        }
+      ]
+    },
+    {
+      "event": "onSkillInvoked",
+      "name": "Track Skill Usage",
+      "description": "Log when skills are used for learning",
+      "enabled": true,
+      "actions": [
+        {
+          "type": "logAnalytics",
+          "event": "skill_used",
+          "attributes": {
+            "skill": "{{skillName}}",
+            "context": "{{context}}"
+          }
+        }
+      ]
+    },
+    {
+      "event": "onLearningComplete",
+      "name": "Achievement Tracking",
+      "description": "Track completed learning modules and milestones",
+      "enabled": true,
+      "actions": [
+        {
+          "type": "updateProgress",
+          "field": "completedModules",
+          "operation": "increment"
+        },
+        {
+          "type": "checkMilestones",
+          "condition": "completedModules == [5, 10, 25, 50, 100]",
+          "reward": "badge"
+        }
+      ]
+    },
+    {
+      "event": "onProjectStarted",
+      "name": "Project Engagement",
+      "description": "Track when users start hands-on projects",
+      "enabled": true,
+      "actions": [
+        {
+          "type": "logAnalytics",
+          "event": "project_started",
+          "attributes": {
+            "projectId": "{{projectId}}",
+            "level": "{{projectLevel}}"
+          }
+        },
+        {
+          "type": "createReminder",
+          "interval": "7days",
+          "message": "Continue working on {{projectName}}"
+        }
+      ]
+    },
+    {
+      "event": "onAssessmentComplete",
+      "name": "Assessment Results Processing",
+      "description": "Process assessment results and provide feedback",
+      "enabled": true,
+      "actions": [
+        {
+          "type": "generateReport",
+          "reportType": "skillAssessment"
+        },
+        {
+          "type": "updateUserProfile",
+          "fields": ["skillLevels", "recommendations"]
+        },
+        {
+          "type": "suggestResources",
+          "basedOn": "assessmentGaps"
+        }
+      ]
+    },
+    {
+      "event": "onWeeklyReview",
+      "name": "Weekly Progress Review",
+      "description": "Send weekly progress summary",
+      "enabled": true,
+      "schedule": "every Monday at 9:00 AM",
+      "actions": [
+        {
+          "type": "generateProgressReport",
+          "metrics": ["hoursLearned", "skillsProgress", "projectsCompleted"]
+        },
+        {
+          "type": "sendNotification",
+          "channel": "email",
+          "template": "weekly_progress"
+        }
+      ]
+    },
+    {
+      "event": "onMilestoneReached",
+      "name": "Milestone Celebration",
+      "description": "Celebrate user milestones and achievements",
+      "enabled": true,
+      "milestones": [
+        "firstLearningModule",
+        "firstProjectCompleted",
+        "skillMastered",
+        "roleRoadmapCompleted"
+      ],
+      "actions": [
+        {
+          "type": "sendCertificate",
+          "format": "digital"
+        },
+        {
+          "type": "awardBadge",
+          "badgeType": "achievement"
+        },
+        {
+          "type": "logAnalytics",
+          "event": "milestone_achieved"
+        }
+      ]
+    }
+  ],
+  "notificationSettings": {
+    "email": {
+      "enabled": true,
+      "frequency": "weekly",
+      "digest": true
+    },
+    "inApp": {
+      "enabled": true,
+      "frequency": "realtime"
+    },
+    "reminders": {
+      "enabled": true,
+      "frequency": "daily"
+    }
+  },
+  "analyticsSettings": {
+    "enabled": true,
+    "trackingLevel": "detailed",
+    "dataRetention": "12months",
+    "anonymized": true
+  }
+}
