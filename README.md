@@ -1,191 +1,158 @@
-# Developer Roadmap AI Guide - Claude Code Plugin
+# Custom Plugin Kubernetes
 
-An interactive learning companion plugin for Claude Code based on [developer-roadmap.sh](https://github.com/kamranahmedse/developer-roadmap). Master 65 different developer career paths with personalized learning tracks, AI-guided instruction, skill assessments, and hands-on projects.
+Professional Kubernetes cluster management, orchestration, and container platform expertise. Master container deployments, cluster administration, networking, security, and production-grade Kubernetes operations.
 
 ## 🚀 Quick Start
 
 ### Installation
 
 ```bash
-# Clone the repository
-git clone https://github.com/pluginagentmarketplace/developer-roadmap-plugin
-cd developer-roadmap-plugin
+# Clone repository
+git clone https://github.com/pluginagentmarketplace/custom-plugin-kubernetes.git
+cd custom-plugin-kubernetes
 
 # Load in Claude Code
-# Option 1: From directory
-# In Claude Code: Add plugin → ./developer-roadmap-plugin
+# Option 1: Local directory
+# In Claude Code: Add plugin → ./custom-plugin-kubernetes
 
 # Option 2: From marketplace (coming soon)
-# In Claude Code: Add plugin → search "Developer Roadmap"
+# In Claude Code: search "Custom Plugin Kubernetes"
 ```
 
-### First Steps
+### First Commands
 
-1. **Start Learning**: `/learn` - Select your career path and create personalized learning plan
-2. **Explore Roles**: `/explore-roles` - Browse all 65 developer roles
-3. **Assess Skills**: `/assess-skills` - Evaluate your current knowledge
-4. **Find Projects**: `/browse-projects` - Get hands-on project recommendations
+- `/quickstart` - Get started with Kubernetes basics
+- `/cluster-setup` - Learn production cluster setup
+- `/troubleshoot` - Diagnose and resolve issues
+- `/best-practices` - Production best practices
 
 ## 📚 Features
 
 ### 7 Specialized Agents
 
-1. **Backend & DevOps Specialist** - Server-side development, infrastructure, deployment
-2. **Frontend & Mobile Developer** - Web UIs, mobile apps, cross-platform development
-3. **Data & AI Engineer** - Data pipelines, ML models, AI applications
-4. **Architecture & Design** - System design, design patterns, scalability
-5. **Languages & Databases** - Programming languages, database technologies
-6. **Management & Product** - Team leadership, product strategy
-7. **Quality & Security** - Testing, security practices, QA automation
+1. **Cluster Administration & Architecture** - Cluster setup, management, HA
+2. **Container Runtime & Docker** - Containerization, image management
+3. **Deployment & Orchestration** - Workloads, StatefulSets, DaemonSets
+4. **Storage & Networking** - Persistent volumes, services, ingress
+5. **Security & RBAC** - Access control, pod security, compliance
+6. **Monitoring & Observability** - Metrics, logging, tracing
+7. **Development & GitOps** - CI/CD, Helm, ArgoCD, deployment patterns
 
 ### 7 Practical Skills
 
-- `backend-devops` - Server development and infrastructure
-- `frontend-mobile` - User interface and mobile development
-- `data-ai` - Data science and artificial intelligence
-- `architecture` - System design and patterns
-- `languages` - Programming language mastery
-- `management` - Leadership and product management
-- `security` - Security and testing practices
+- `cluster-admin` - Cluster administration operations
+- `docker-containers` - Container building and management
+- `deployments` - Kubernetes workload resources
+- `storage-networking` - Storage and networking solutions
+- `security` - Security and access control
+- `monitoring` - Observability and monitoring
+- `gitops` - Modern deployment patterns
 
 ### 4 Powerful Commands
 
-- `/learn` - Interactive learning path selection
-- `/explore-roles` - Discover all 65 career paths
-- `/assess-skills` - Knowledge evaluation and recommendations
-- `/browse-projects` - Hands-on project browser
+- `/quickstart` - Get started guide
+- `/cluster-setup` - Production cluster setup
+- `/troubleshoot` - Troubleshooting guide
+- `/best-practices` - Best practices reference
 
-### Learning Coverage
+## 🎯 What You'll Learn
 
-- **65 Career Paths** from entry-level to senior roles
-- **1000+ Hours** of learning content
-- **100+ Hands-On Projects** with different difficulty levels
-- **Interactive Assessments** with detailed feedback
-- **Skill Certificates** upon mastery
-- **Personalized Recommendations** based on goals
+### Cluster Administration
+- ✅ Setting up Kubernetes clusters
+- ✅ Node management and scaling
+- ✅ Cluster upgrades and maintenance
+- ✅ High availability and disaster recovery
+
+### Container Orchestration
+- ✅ Docker image building
+- ✅ Image optimization and security
+- ✅ Container registries
+- ✅ Deployment strategies
+
+### Workload Management
+- ✅ Deployments and rolling updates
+- ✅ StatefulSets for stateful apps
+- ✅ DaemonSets and Jobs
+- ✅ Replica and resource management
+
+### Networking & Storage
+- ✅ Services and service discovery
+- ✅ Ingress and routing
+- ✅ Network policies
+- ✅ Persistent volumes and claims
+
+### Security & Compliance
+- ✅ RBAC configuration
+- ✅ Pod security and contexts
+- ✅ Network policies
+- ✅ Secrets management
+- ✅ Audit logging
+
+### Monitoring & Troubleshooting
+- ✅ Prometheus metrics
+- ✅ Logging and aggregation
+- ✅ Distributed tracing
+- ✅ Debugging techniques
+
+### Modern DevOps
+- ✅ Helm charts
+- ✅ Kustomize
+- ✅ GitOps practices
+- ✅ ArgoCD
+- ✅ CI/CD integration
 
 ## 📋 Plugin Structure
 
 ```
-developer-roadmap-plugin/
+custom-plugin-kubernetes/
 ├── .claude-plugin/
 │   └── plugin.json                 # Plugin manifest
 │
-├── agents/                         # 7 specialized agents
-│   ├── 01-backend-devops.md
-│   ├── 02-frontend-mobile.md
-│   ├── 03-data-ai.md
-│   ├── 04-architecture-design.md
-│   ├── 05-languages-databases.md
-│   ├── 06-management-product.md
-│   └── 07-quality-security.md
+├── agents/ (7 specialized agents)
+│   ├── 01-cluster-admin.md
+│   ├── 02-container-runtime.md
+│   ├── 03-deployment-orchestration.md
+│   ├── 04-storage-networking.md
+│   ├── 05-security-rbac.md
+│   ├── 06-monitoring-observability.md
+│   └── 07-development-gitops.md
 │
-├── commands/                       # 4 slash commands
-│   ├── learn.md
-│   ├── explore-roles.md
-│   ├── assess-skills.md
-│   └── browse-projects.md
+├── commands/ (4 slash commands)
+│   ├── quickstart.md
+│   ├── cluster-setup.md
+│   ├── troubleshoot.md
+│   └── best-practices.md
 │
-├── skills/                         # 7 practical skills
-│   ├── backend-devops/SKILL.md
-│   ├── frontend-mobile/SKILL.md
-│   ├── data-ai/SKILL.md
-│   ├── architecture/SKILL.md
-│   ├── languages/SKILL.md
-│   ├── management/SKILL.md
-│   └── security/SKILL.md
+├── skills/ (7 practical skills)
+│   ├── cluster-admin/SKILL.md
+│   ├── docker-containers/SKILL.md
+│   ├── deployments/SKILL.md
+│   ├── storage-networking/SKILL.md
+│   ├── security/SKILL.md
+│   ├── monitoring/SKILL.md
+│   └── gitops/SKILL.md
 │
 ├── hooks/
-│   └── hooks.json                 # Automation hooks
+│   └── hooks.json
 │
-├── scripts/                       # Helper scripts
+├── scripts/
 │   └── init-plugin.sh
 │
-└── README.md                      # This file
+├── README.md (this file)
+└── CHANGELOG.md
 ```
-
-## 🎯 Career Paths Covered
-
-### Web Development (11 paths)
-Frontend, Backend, Full Stack, React, Vue, Angular, Next.js, Web Designer, UX/UI, Technical Writer, DevRel
-
-### Programming Languages (10 paths)
-JavaScript, TypeScript, Python, Java, Go, Rust, PHP, C++, C#, Ruby
-
-### DevOps & Cloud (8 paths)
-DevOps, Docker, Kubernetes, Cloud Architect, SRE, AWS, Azure, GCP
-
-### Data & AI (8 paths)
-Data Engineer, ML Engineer, AI Engineer, Data Scientist, Data Analyst, BI Analyst, MLOps, AI Red Teaming
-
-### Mobile Development (5 paths)
-iOS, Android, React Native, Flutter, Mobile Designer
-
-### Databases (7 paths)
-PostgreSQL, MongoDB, MySQL, Redis, SQL, System Design, Database Admin
-
-### Management (5 paths)
-Engineering Manager, Technical Lead, Product Manager, TPM, Engineering Director
-
-### Specialized (5 paths)
-QA, Security, Blockchain, Game Developer, Prompt Engineer
-
-## 🎓 Learning Features
-
-### Personalized Learning Paths
-
-```markdown
-/learn
-→ Select role (e.g., "Backend Developer")
-→ Choose level (Beginner/Intermediate/Advanced)
-→ Define goals
-→ Get customized roadmap with milestones
-```
-
-### Interactive Assessments
-
-- Multi-level skill evaluation
-- Personalized recommendations
-- Detailed knowledge reports
-- Skill certificates
-
-### Hands-On Projects
-
-- 100+ curated projects
-- Multiple difficulty levels
-- Real-world scenarios
-- Portfolio-building focus
-
-### Progress Tracking
-
-- Learning hour tracking
-- Milestone achievements
-- Skill mastery verification
-- Certificate management
 
 ## 🔧 Configuration
 
-### Agent Invocation
+### Using the Plugin
 
-Agents are automatically invoked when:
-- User mentions relevant keywords
-- Learning path requires their expertise
-- User explicitly requests specific agent
-
-### Skill Usage
-
-Skills are loaded when:
-- User needs specific technical guidance
-- Agent requires skill-based knowledge
-- Learning module covers skill topic
-
-### Hooks Configuration
-
-Edit `hooks/hooks.json` to:
-- Customize notifications
-- Enable/disable tracking
-- Adjust automation schedules
-- Configure analytics
+```
+# Quick reference
+/quickstart        → Get started with Kubernetes
+/cluster-setup    → Production cluster setup
+/troubleshoot     → Diagnose Kubernetes issues
+/best-practices   → Production best practices
+```
 
 ## 📊 Plugin Statistics
 
@@ -194,64 +161,94 @@ Edit `hooks/hooks.json` to:
 | Agents | 7 | ✅ Complete |
 | Skills | 7 | ✅ Complete |
 | Commands | 4 | ✅ Complete |
-| Career Paths | 65 | ✅ Complete |
-| Learning Hours | 1000+ | ✅ Complete |
-| Projects | 100+ | ✅ Complete |
-| Code Examples | 500+ | ✅ Complete |
+| Learning Hours | 100+ | ✅ Complete |
+| Code Examples | 200+ | ✅ Complete |
 
 ## 🚀 Usage Examples
 
-### Start Learning Backend Development
+### Start with Basics
 ```
-/learn
-Select: Backend Developer
-Level: Intermediate
-Goal: Get a job as a backend engineer
-→ Receives personalized 6-month learning plan
-```
-
-### Explore DevOps Roles
-```
-/explore-roles --category devops
-→ View all 8 DevOps-related roles
-→ Compare Docker vs Kubernetes specialists
-→ See salary and demand data
+/quickstart
+→ Learn Kubernetes fundamentals
+→ Local cluster setup
+→ First deployment
 ```
 
-### Assess Your Skills
+### Set Up Production Cluster
 ```
-/assess-skills --area backend
-→ Complete 30-minute assessment
-→ Get detailed skill breakdown
-→ Receive personalized recommendations
+/cluster-setup
+→ Choose cluster platform (EKS, GKE, AKS, self-hosted)
+→ Installation guide
+→ Security hardening
 ```
 
-### Find Projects
+### Troubleshoot Issues
 ```
-/browse-projects --level intermediate --skill react
-→ Find React projects at intermediate level
-→ Get project specifications
-→ Build portfolio
+/troubleshoot
+→ Pod issues
+→ Node problems
+→ Networking issues
+→ Storage problems
 ```
+
+### Learn Best Practices
+```
+/best-practices
+→ Container image optimization
+→ Deployment patterns
+→ Security practices
+→ Monitoring strategies
+```
+
+## 🎓 Learning Paths
+
+### For Beginners
+1. `/quickstart` - Learn basics
+2. `/cluster-setup` - Set up local cluster
+3. `/best-practices` - Follow best practices
+4. Try deploying sample applications
+
+### For DevOps Engineers
+1. `/cluster-setup` - Production clusters
+2. `/best-practices` - Patterns and anti-patterns
+3. Explore security, monitoring, and GitOps agents
+4. Implement in your environment
+
+### For Platform Teams
+1. All agents and skills
+2. Focus on cluster administration
+3. Security and compliance
+4. Monitoring and observability
 
 ## 📖 Documentation
 
-- **[ARCHITECTURE.md](ARCHITECTURE.md)** - Plugin architecture and design
-- **[LEARNING-PATH.md](LEARNING-PATH.md)** - How learning paths work
-- **Agent Documentation** - See `/agents` directory
-- **Skill Documentation** - See `/skills` directory
-- **Command Help** - Use `/help` in Claude Code
+- **plugin.json** - Plugin manifest and configuration
+- **agents/** - Detailed agent documentation
+- **commands/** - Command documentation
+- **skills/** - Practical skill guides
+- **hooks/hooks.json** - Automation configuration
 
 ## 🔗 Resources
 
-- [Developer Roadmap](https://roadmap.sh) - Original resource
-- [GitHub Repository](https://github.com/kamranahmedse/developer-roadmap)
-- [Claude Code Documentation](https://code.claude.com/docs)
-- [Plugin Development Guide](https://code.claude.com/docs/plugins)
+### Official Resources
+- [Kubernetes Official Docs](https://kubernetes.io/docs/)
+- [Docker Documentation](https://docs.docker.com/)
+- [Helm Documentation](https://helm.sh/docs/)
+- [ArgoCD Documentation](https://argo-cd.readthedocs.io/)
+
+### Learning Platforms
+- [Kubernetes Training](https://kubernetes.io/training/)
+- [Linux Academy](https://linuxacademy.com/)
+- [A Cloud Guru](https://acloudguru.com/)
+
+### Certifications
+- CKA (Certified Kubernetes Administrator)
+- CKAD (Certified Kubernetes Application Developer)
+- CKS (Certified Kubernetes Security Specialist)
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
+Contributions welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ## 📜 License
 
@@ -259,8 +256,8 @@ MIT License - See [LICENSE](LICENSE)
 
 ## 🙋 Support
 
-- **Issues**: [GitHub Issues](https://github.com/pluginagentmarketplace/developer-roadmap-plugin/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/pluginagentmarketplace/developer-roadmap-plugin/discussions)
+- **Issues**: [GitHub Issues](https://github.com/pluginagentmarketplace/custom-plugin-kubernetes/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/pluginagentmarketplace/custom-plugin-kubernetes/discussions)
 - **Documentation**: [Claude Code Docs](https://code.claude.com/docs)
 
 ## 🎯 Roadmap
@@ -268,16 +265,12 @@ MIT License - See [LICENSE](LICENSE)
 - [x] 7 specialized agents
 - [x] 7 practical skills
 - [x] 4 slash commands
-- [x] All 65 career paths
-- [ ] Integration with Roadmap.sh API
-- [ ] Mobile app companion
-- [ ] Community projects showcase
-- [ ] Live coding sessions
-- [ ] Certification partnerships
-- [ ] Marketplace integration
+- [x] 100+ code examples
+- [ ] Video tutorials
+- [ ] Interactive labs
+- [ ] Certification prep
+- [ ] Community showcase
 
 ---
 
-**Built with ❤️ for developers by developers**
-
-Start your learning journey today with `/learn`! 🚀
+**Start your Kubernetes mastery journey today with `/quickstart`! 🚀**

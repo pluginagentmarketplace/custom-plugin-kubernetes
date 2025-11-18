@@ -1,110 +1,111 @@
 {
-  "name": "Developer Roadmap AI Guide",
+  "name": "Custom Plugin Kubernetes",
   "version": "1.0.0",
   "type": "plugin",
-  "description": "Interactive learning companion based on developer-roadmap.sh. 65 different career paths with 7 specialized agents, personalized learning tracks, skill assessment, and hands-on projects.",
+  "description": "Professional Kubernetes cluster management, orchestration, and container platform expertise. Master container deployments, cluster administration, networking, security, and production-grade Kubernetes operations.",
   "author": {
-    "name": "Developer Roadmap Community",
-    "url": "https://github.com/kamranahmedse/developer-roadmap"
+    "name": "Custom Plugin Team",
+    "url": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes"
   },
-  "homepage": "https://github.com/pluginagentmarketplace/developer-roadmap-plugin",
+  "homepage": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes",
   "repository": {
     "type": "git",
-    "url": "https://github.com/pluginagentmarketplace/developer-roadmap-plugin"
+    "url": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes"
   },
   "license": "MIT",
   "keywords": [
-    "learning",
-    "roadmap",
-    "career",
-    "developer",
-    "skill-development",
-    "interactive",
-    "education"
+    "kubernetes",
+    "container-orchestration",
+    "docker",
+    "devops",
+    "cluster-management",
+    "containerization",
+    "cloud-native",
+    "production"
   ],
   "commands": [
     {
-      "name": "learn",
-      "description": "Start learning journey - select career path from 65 different roles"
+      "name": "quickstart",
+      "description": "Get started with Kubernetes - learn basics and best practices"
     },
     {
-      "name": "explore-roles",
-      "description": "Explore all 65 developer roles and career paths"
+      "name": "cluster-setup",
+      "description": "Guide for setting up production Kubernetes clusters"
     },
     {
-      "name": "assess-skills",
-      "description": "Assess current skills and get personalized recommendations"
+      "name": "troubleshoot",
+      "description": "Diagnose and resolve Kubernetes issues"
     },
     {
-      "name": "browse-projects",
-      "description": "Browse hands-on projects by difficulty level and skills"
+      "name": "best-practices",
+      "description": "Learn Kubernetes best practices and patterns"
     }
   ],
   "agents": [
     {
-      "name": "Backend & DevOps Specialist",
-      "file": "agents/01-backend-devops.md",
-      "description": "Expert in server-side development, DevOps, infrastructure, and deployment strategies"
+      "name": "Cluster Administration & Architecture",
+      "file": "agents/01-cluster-admin.md",
+      "description": "Expert in Kubernetes cluster setup, management, architecture, and operational excellence"
     },
     {
-      "name": "Frontend & Mobile Developer",
-      "file": "agents/02-frontend-mobile.md",
-      "description": "Specialist in web frontends, mobile apps, UI/UX and cross-platform development"
+      "name": "Container Runtime & Docker",
+      "file": "agents/02-container-runtime.md",
+      "description": "Specialist in Docker, container runtimes, image management, and container technologies"
     },
     {
-      "name": "Data & AI Engineer",
-      "file": "agents/03-data-ai.md",
-      "description": "Expert in data engineering, machine learning, AI, and analytics"
+      "name": "Deployment & Orchestration",
+      "file": "agents/03-deployment-orchestration.md",
+      "description": "Expert in Kubernetes deployments, StatefulSets, DaemonSets, and workload orchestration"
     },
     {
-      "name": "Architecture & Design",
-      "file": "agents/04-architecture-design.md",
-      "description": "Specialist in system architecture, design patterns, and scalable solutions"
+      "name": "Storage & Networking",
+      "file": "agents/04-storage-networking.md",
+      "description": "Specialist in persistent storage, networking, service mesh, and cluster communication"
     },
     {
-      "name": "Languages & Databases",
-      "file": "agents/05-languages-databases.md",
-      "description": "Expert in programming languages mastery and database technologies"
+      "name": "Security & RBAC",
+      "file": "agents/05-security-rbac.md",
+      "description": "Expert in Kubernetes security, RBAC, network policies, and compliance"
     },
     {
-      "name": "Management & Product",
-      "file": "agents/06-management-product.md",
-      "description": "Specialist in engineering management, product strategy, and team leadership"
+      "name": "Monitoring & Observability",
+      "file": "agents/06-monitoring-observability.md",
+      "description": "Specialist in observability, monitoring, logging, metrics, and distributed tracing"
     },
     {
-      "name": "Quality & Security",
-      "file": "agents/07-quality-security.md",
-      "description": "Expert in testing, security, QA automation, and cyber protection"
+      "name": "Development & GitOps",
+      "file": "agents/07-development-gitops.md",
+      "description": "Expert in development workflows, CI/CD integration, Helm, and GitOps practices"
     }
   ],
   "skills": [
     {
-      "name": "backend-devops",
-      "file": "skills/backend-devops/SKILL.md"
+      "name": "cluster-admin",
+      "file": "skills/cluster-admin/SKILL.md"
     },
     {
-      "name": "frontend-mobile",
-      "file": "skills/frontend-mobile/SKILL.md"
+      "name": "docker-containers",
+      "file": "skills/docker-containers/SKILL.md"
     },
     {
-      "name": "data-ai",
-      "file": "skills/data-ai/SKILL.md"
+      "name": "deployments",
+      "file": "skills/deployments/SKILL.md"
     },
     {
-      "name": "architecture",
-      "file": "skills/architecture/SKILL.md"
-    },
-    {
-      "name": "languages",
-      "file": "skills/languages/SKILL.md"
-    },
-    {
-      "name": "management",
-      "file": "skills/management/SKILL.md"
+      "name": "storage-networking",
+      "file": "skills/storage-networking/SKILL.md"
     },
     {
       "name": "security",
       "file": "skills/security/SKILL.md"
+    },
+    {
+      "name": "monitoring",
+      "file": "skills/monitoring/SKILL.md"
+    },
+    {
+      "name": "gitops",
+      "file": "skills/gitops/SKILL.md"
     }
   ],
   "hooks": [

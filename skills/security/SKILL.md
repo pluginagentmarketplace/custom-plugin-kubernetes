@@ -1,105 +1,152 @@
 ---
 name: security
-description: Secure systems and data. Master testing strategies, cybersecurity practices, and build robust applications protected against threats.
+description: Master Kubernetes security, RBAC, network policies, pod security, and compliance. Learn to secure clusters and enforce access control.
 ---
 
-# Quality & Security Skills
+# Kubernetes Security
 
 ## Quick Start
 
-### OWASP Top 10 Vulnerabilities
+### RBAC Setup
+```yaml
+# ServiceAccount
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: app-user
+---
+# Role
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: app-reader
+rules:
+- apiGroups: [""]
+  resources: ["pods", "services"]
+  verbs: ["get", "list"]
+---
+# RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: app-user-reader
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: app-reader
+subjects:
+- kind: ServiceAccount
+  name: app-user
+  namespace: default
 ```
-1. Broken Access Control
-2. Cryptographic Failures
-3. Injection (SQL, NoSQL, OS)
-4. Insecure Design
-5. Security Misconfiguration
-6. Vulnerable and Outdated Components
-7. Authentication Failures
-8. Software and Data Integrity Failures
-9. Logging and Monitoring Failures
-10. SSRF (Server-Side Request Forgery)
+
+### Pod Security Context
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secure-pod
+spec:
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 1000
+    fsGroup: 2000
+  containers:
+  - name: app
+    image: myapp:1.0
+    securityContext:
+      allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      capabilities:
+        drop:
+        - ALL
 ```
 
-### Basic Security Test Example
-```python
-import unittest
-
-class SecurityTests(unittest.TestCase):
-    def test_password_hashing(self):
-        password = "test123"
-        hashed = hash_password(password)
-        self.assertNotEqual(password, hashed)
-        self.assertTrue(verify_password(password, hashed))
-
-    def test_sql_injection_prevention(self):
-        # Use parameterized queries
-        query = "SELECT * FROM users WHERE id = %s"
-        result = db.execute(query, (user_id,))
-        self.assertIsNotNone(result)
+### Network Policy
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: app-policy
+spec:
+  podSelector:
+    matchLabels:
+      app: myapp
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          name: production
+    ports:
+    - protocol: TCP
+      port: 8080
 ```
 
 ## Core Concepts
 
-### Testing Fundamentals
-- Test planning and strategy
-- Manual vs automated testing
-- Test case design
-- Test coverage metrics
-- Regression testing
-- Smoke testing
+### RBAC (Role-Based Access Control)
+- **Roles**: Namespaced permissions
+- **ClusterRoles**: Cluster-wide permissions
+- **RoleBindings**: Bind roles to users
+- **ClusterRoleBindings**: Bind cluster roles
 
-### Testing Frameworks
-- Unit testing (Jest, pytest, JUnit)
-- Integration testing
-- End-to-end testing (Cypress, Selenium)
-- Performance testing
-- Load testing (Apache JMeter, Locust)
+### Authentication
+- Client certificates
+- API tokens
+- OpenID Connect
+- Webhook authentication
 
-### Security Fundamentals
-- Authentication vs Authorization
-- Cryptography basics
-- HTTPS and TLS
-- Passwords and hashing (bcrypt, argon2)
-- OAuth and JWT tokens
-- API security
+### Authorization Modes
+- RBAC (recommended)
+- ABAC
+- Node authorization
+- Webhook
 
 ## Advanced Topics
 
-### Secure Coding
-- Input validation and sanitization
-- Output encoding
-- Error handling
-- Logging secrets safely
-- CORS and CSRF protection
-- Rate limiting
+### Pod Security Standards
+```bash
+# Check pod security standards
+kubectl label namespace default pod-security.kubernetes.io/enforce=restricted
 
-### Vulnerability Assessment
-- Penetration testing basics
-- Vulnerability scanning
-- Static code analysis (SonarQube)
-- Dependency checking (OWASP Dependency-Check)
-- Security headers (CSP, X-Frame-Options)
+# Verify compliance
+kubectl get pods -A -o json | jq '.items[] | .metadata.namespace'
+```
 
-### DevSecOps
-- Security in CI/CD pipelines
-- Container security
-- Infrastructure security
+### Secret Management
+```bash
+# Create secret
+kubectl create secret generic db-creds \
+  --from-literal=password=mypassword
+
+# Use in pod
+# secretKeyRef:
+#   name: db-creds
+#   key: password
+```
+
+### Policy Enforcement
+- OPA/Gatekeeper for policies
+- Pod security policies
+- Admission webhooks
 - Policy as code
-- Secrets management
-- Security monitoring
 
-### Compliance & Standards
-- GDPR compliance
-- CCPA requirements
-- ISO 27001
-- SOC 2 Type II
-- PCI DSS
-- HIPAA standards
+### Audit Logging
+```yaml
+# Audit policy
+apiVersion: audit.k8s.io/v1
+kind: Policy
+rules:
+- level: RequestResponse
+  verbs: ["create", "update", "patch", "delete"]
+  omitStages:
+  - RequestReceived
+```
 
 ## Resources
-- [QA Roadmap - roadmap.sh](https://roadmap.sh/qa)
-- [Cyber Security Roadmap - roadmap.sh](https://roadmap.sh/cyber-security)
-- [OWASP Top 10](https://owasp.org/www-project-top-ten/)
-- [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
-- [PortSwigger Web Security Academy](https://portswigger.net/web-security)
+- [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+- [Pod Security Standards](https://kubernetes.io/docs/concepts/security/pod-security-standards/)
+- [Network Policies](https://kubernetes.io/docs/concepts/services-networking/network-policies/)
