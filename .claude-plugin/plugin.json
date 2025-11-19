@@ -1,0 +1,123 @@
+{
+  "name": "Custom Plugin Kubernetes",
+  "version": "1.0.0",
+  "type": "plugin",
+  "description": "Professional Kubernetes cluster management, orchestration, and container platform expertise. Master container deployments, cluster administration, networking, security, and production-grade Kubernetes operations.",
+  "author": {
+    "name": "Custom Plugin Team",
+    "url": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes"
+  },
+  "homepage": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes"
+  },
+  "license": "MIT",
+  "keywords": [
+    "kubernetes",
+    "container-orchestration",
+    "docker",
+    "devops",
+    "cluster-management",
+    "containerization",
+    "cloud-native",
+    "production"
+  ],
+  "commands": [
+    {
+      "name": "quickstart",
+      "description": "Get started with Kubernetes - learn basics and best practices"
+    },
+    {
+      "name": "cluster-setup",
+      "description": "Guide for setting up production Kubernetes clusters"
+    },
+    {
+      "name": "troubleshoot",
+      "description": "Diagnose and resolve Kubernetes issues"
+    },
+    {
+      "name": "best-practices",
+      "description": "Learn Kubernetes best practices and patterns"
+    }
+  ],
+  "agents": [
+    {
+      "name": "Cluster Administration & Architecture",
+      "file": "agents/01-cluster-admin.md",
+      "description": "Expert in Kubernetes cluster setup, management, architecture, and operational excellence"
+    },
+    {
+      "name": "Container Runtime & Docker",
+      "file": "agents/02-container-runtime.md",
+      "description": "Specialist in Docker, container runtimes, image management, and container technologies"
+    },
+    {
+      "name": "Deployment & Orchestration",
+      "file": "agents/03-deployment-orchestration.md",
+      "description": "Expert in Kubernetes deployments, StatefulSets, DaemonSets, and workload orchestration"
+    },
+    {
+      "name": "Storage & Networking",
+      "file": "agents/04-storage-networking.md",
+      "description": "Specialist in persistent storage, networking, service mesh, and cluster communication"
+    },
+    {
+      "name": "Security & RBAC",
+      "file": "agents/05-security-rbac.md",
+      "description": "Expert in Kubernetes security, RBAC, network policies, and compliance"
+    },
+    {
+      "name": "Monitoring & Observability",
+      "file": "agents/06-monitoring-observability.md",
+      "description": "Specialist in observability, monitoring, logging, metrics, and distributed tracing"
+    },
+    {
+      "name": "Development & GitOps",
+      "file": "agents/07-development-gitops.md",
+      "description": "Expert in development workflows, CI/CD integration, Helm, and GitOps practices"
+    }
+  ],
+  "skills": [
+    {
+      "name": "cluster-admin",
+      "file": "skills/cluster-admin/SKILL.md"
+    },
+    {
+      "name": "docker-containers",
+      "file": "skills/docker-containers/SKILL.md"
+    },
+    {
+      "name": "deployments",
+      "file": "skills/deployments/SKILL.md"
+    },
+    {
+      "name": "storage-networking",
+      "file": "skills/storage-networking/SKILL.md"
+    },
+    {
+      "name": "security",
+      "file": "skills/security/SKILL.md"
+    },
+    {
+      "name": "monitoring",
+      "file": "skills/monitoring/SKILL.md"
+    },
+    {
+      "name": "gitops",
+      "file": "skills/gitops/SKILL.md"
+    }
+  ],
+  "hooks": [
+    {
+      "event": "onPluginLoaded",
+      "script": "scripts/init-plugin.sh"
+    }
+  ],
+  "minimumClaudeVersion": "3.7.0",
+  "capabilities": {
+    "multiAgent": true,
+    "parallelExecution": true,
+    "skillBased": true
+  }
+}

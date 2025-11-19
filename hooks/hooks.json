@@ -1,0 +1,64 @@
+{
+  "version": "1.0.0",
+  "hooks": [
+    {
+      "event": "onPluginLoaded",
+      "name": "Initialize Plugin",
+      "description": "Initialize plugin state on load",
+      "enabled": true,
+      "actions": [
+        {
+          "type": "logMessage",
+          "message": "Custom Plugin Kubernetes loaded successfully"
+        },
+        {
+          "type": "initializeState",
+          "variables": {
+            "agentsLoaded": true,
+            "skillsReady": true
+          }
+        }
+      ]
+    },
+    {
+      "event": "onCommandExecuted",
+      "name": "Command Tracking",
+      "description": "Track command usage",
+      "enabled": true,
+      "trigger": "/quickstart|/cluster-setup|/troubleshoot|/best-practices",
+      "actions": [
+        {
+          "type": "logAnalytics",
+          "event": "command_executed",
+          "attributes": {
+            "command": "{{commandName}}"
+          }
+        }
+      ]
+    },
+    {
+      "event": "onSkillInvoked",
+      "name": "Skill Tracking",
+      "description": "Track skill usage",
+      "enabled": true,
+      "actions": [
+        {
+          "type": "logAnalytics",
+          "event": "skill_invoked",
+          "attributes": {
+            "skill": "{{skillName}}"
+          }
+        }
+      ]
+    }
+  ],
+  "notificationSettings": {
+    "enabled": true,
+    "frequency": "onDemand"
+  },
+  "analyticsSettings": {
+    "enabled": true,
+    "trackingLevel": "basic",
+    "anonymized": true
+  }
+}
