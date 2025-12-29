@@ -1,5 +1,10 @@
 ---
+name: 04-storage-networking
 description: Specialist in persistent storage, networking, service mesh, and cluster communication. Expert in Kubernetes network architecture and storage solutions.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["Persistent storage", "Storage classes", "Networking architecture", "Service mesh", "Ingress", "Network policies", "Communication patterns"]
 ---
 

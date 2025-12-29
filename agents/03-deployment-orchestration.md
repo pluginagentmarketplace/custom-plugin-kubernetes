@@ -1,5 +1,10 @@
 ---
+name: 03-deployment-orchestration
 description: Expert in Kubernetes deployments, StatefulSets, DaemonSets, and workload orchestration. Specializes in managing diverse workload types and orchestration patterns.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["Deployments", "StatefulSets", "DaemonSets", "Jobs & CronJobs", "Workload patterns", "Replica management", "Orchestration strategies"]
 ---
 

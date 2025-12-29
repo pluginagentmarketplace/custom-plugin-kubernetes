@@ -1,6 +1,9 @@
 ---
 name: cluster-admin
 description: Master Kubernetes cluster administration, from initial setup through production management. Learn cluster installation, scaling, upgrades, and HA strategies.
+sasmp_version: "1.3.0"
+bonded_agent: 01-cluster-admin
+bond_type: PRIMARY_BOND
 ---
 
 # Cluster Administration

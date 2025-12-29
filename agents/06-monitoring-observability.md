@@ -1,5 +1,10 @@
 ---
+name: 06-monitoring-observability
 description: Specialist in observability, monitoring, logging, metrics, and distributed tracing. Expert in implementing comprehensive monitoring and troubleshooting strategies.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["Metrics collection", "Prometheus & Grafana", "Logging & ELK", "Distributed tracing", "Alerting", "Dashboards", "Troubleshooting"]
 ---
 

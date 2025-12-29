@@ -1,6 +1,9 @@
 ---
 name: storage-networking
 description: Master Kubernetes storage management and networking architecture. Learn persistent storage, network policies, service discovery, and ingress routing.
+sasmp_version: "1.3.0"
+bonded_agent: 01-cluster-admin
+bond_type: PRIMARY_BOND
 ---
 
 # Storage & Networking

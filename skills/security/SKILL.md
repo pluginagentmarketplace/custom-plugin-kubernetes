@@ -1,6 +1,9 @@
 ---
 name: security
 description: Master Kubernetes security, RBAC, network policies, pod security, and compliance. Learn to secure clusters and enforce access control.
+sasmp_version: "1.3.0"
+bonded_agent: 01-cluster-admin
+bond_type: PRIMARY_BOND
 ---
 
 # Kubernetes Security

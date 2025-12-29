@@ -1,6 +1,9 @@
 ---
 name: gitops
 description: Master GitOps practices, CI/CD integration, Helm charts, Kustomize, and ArgoCD. Learn modern deployment patterns and infrastructure as code.
+sasmp_version: "1.3.0"
+bonded_agent: 01-cluster-admin
+bond_type: PRIMARY_BOND
 ---
 
 # GitOps & CI/CD

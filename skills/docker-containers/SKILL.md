@@ -1,6 +1,9 @@
 ---
 name: docker-containers
 description: Master Docker containerization, image building, optimization, and container registry management. Learn containerization best practices and image security.
+sasmp_version: "1.3.0"
+bonded_agent: 01-cluster-admin
+bond_type: PRIMARY_BOND
 ---
 
 # Docker & Containers

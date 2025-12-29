@@ -1,6 +1,9 @@
 ---
 name: deployments
 description: Master Kubernetes Deployments, StatefulSets, DaemonSets, and workload orchestration. Learn deployment patterns and container orchestration strategies.
+sasmp_version: "1.3.0"
+bonded_agent: 01-cluster-admin
+bond_type: PRIMARY_BOND
 ---
 
 # Kubernetes Deployments

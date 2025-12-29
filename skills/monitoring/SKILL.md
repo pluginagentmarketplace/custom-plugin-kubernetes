@@ -1,6 +1,9 @@
 ---
 name: monitoring
 description: Master Kubernetes observability, monitoring with Prometheus, logging, metrics, and distributed tracing. Learn to implement comprehensive monitoring strategies.
+sasmp_version: "1.3.0"
+bonded_agent: 01-cluster-admin
+bond_type: PRIMARY_BOND
 ---
 
 # Kubernetes Monitoring & Observability

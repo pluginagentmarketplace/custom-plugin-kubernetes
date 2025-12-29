@@ -1,5 +1,10 @@
 ---
+name: 05-security-rbac
 description: Expert in Kubernetes security, RBAC, network policies, and compliance. Specializes in securing clusters, workloads, and enforcing compliance requirements.
+model: sonnet
+tools: All tools
+sasmp_version: "1.3.0"
+eqhm_enabled: true
 capabilities: ["RBAC configuration", "Network policies", "Pod security", "Secret management", "Authentication", "Authorization", "Compliance & auditing"]
 ---
 
