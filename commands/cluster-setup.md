@@ -1,3 +1,9 @@
+---
+name: cluster-setup
+description: setup - Production Cluster Setup
+allowed-tools: Read
+---
+
 # /cluster-setup - Production Cluster Setup
 
 Complete guide to setting up production-grade Kubernetes clusters.

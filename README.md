@@ -1,276 +1,262 @@
-# Custom Plugin Kubernetes
+<div align="center">
 
-Professional Kubernetes cluster management, orchestration, and container platform expertise. Master container deployments, cluster administration, networking, security, and production-grade Kubernetes operations.
+<!-- Animated Typing Banner -->
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=3000&pause=1000&color=2E9EF7&center=true&vCenter=true&multiline=true&repeat=true&width=600&height=100&lines=Kubernetes+Assistant;7+Agents+%7C+7+Skills;Claude+Code+Plugin" alt="Kubernetes Assistant" />
 
-## 🚀 Quick Start
+<br/>
 
-### Installation
+<!-- Badge Row 1: Status Badges -->
+[![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=for-the-badge)](https://github.com/pluginagentmarketplace/custom-plugin-kubernetes/releases)
+[![License](https://img.shields.io/badge/License-Custom-yellow?style=for-the-badge)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Production-brightgreen?style=for-the-badge)](#)
+[![SASMP](https://img.shields.io/badge/SASMP-v1.3.0-blueviolet?style=for-the-badge)](#)
 
-```bash
-# Clone repository
-git clone https://github.com/pluginagentmarketplace/custom-plugin-kubernetes.git
-cd custom-plugin-kubernetes
+<!-- Badge Row 2: Content Badges -->
+[![Agents](https://img.shields.io/badge/Agents-7-orange?style=flat-square&logo=robot)](#-agents)
+[![Skills](https://img.shields.io/badge/Skills-7-purple?style=flat-square&logo=lightning)](#-skills)
+[![Commands](https://img.shields.io/badge/Commands-4-green?style=flat-square&logo=terminal)](#-commands)
 
-# Load in Claude Code
-# Option 1: Local directory
-# In Claude Code: Add plugin → ./custom-plugin-kubernetes
+<br/>
 
-# Option 2: From marketplace (coming soon)
-# In Claude Code: search "Custom Plugin Kubernetes"
-```
-
-### First Commands
-
-- `/quickstart` - Get started with Kubernetes basics
-- `/cluster-setup` - Learn production cluster setup
-- `/troubleshoot` - Diagnose and resolve issues
-- `/best-practices` - Production best practices
-
-## 📚 Features
-
-### 7 Specialized Agents
-
-1. **Cluster Administration & Architecture** - Cluster setup, management, HA
-2. **Container Runtime & Docker** - Containerization, image management
-3. **Deployment & Orchestration** - Workloads, StatefulSets, DaemonSets
-4. **Storage & Networking** - Persistent volumes, services, ingress
-5. **Security & RBAC** - Access control, pod security, compliance
-6. **Monitoring & Observability** - Metrics, logging, tracing
-7. **Development & GitOps** - CI/CD, Helm, ArgoCD, deployment patterns
-
-### 7 Practical Skills
-
-- `cluster-admin` - Cluster administration operations
-- `docker-containers` - Container building and management
-- `deployments` - Kubernetes workload resources
-- `storage-networking` - Storage and networking solutions
-- `security` - Security and access control
-- `monitoring` - Observability and monitoring
-- `gitops` - Modern deployment patterns
-
-### 4 Powerful Commands
-
-- `/quickstart` - Get started guide
-- `/cluster-setup` - Production cluster setup
-- `/troubleshoot` - Troubleshooting guide
-- `/best-practices` - Best practices reference
-
-## 🎯 What You'll Learn
-
-### Cluster Administration
-- ✅ Setting up Kubernetes clusters
-- ✅ Node management and scaling
-- ✅ Cluster upgrades and maintenance
-- ✅ High availability and disaster recovery
-
-### Container Orchestration
-- ✅ Docker image building
-- ✅ Image optimization and security
-- ✅ Container registries
-- ✅ Deployment strategies
-
-### Workload Management
-- ✅ Deployments and rolling updates
-- ✅ StatefulSets for stateful apps
-- ✅ DaemonSets and Jobs
-- ✅ Replica and resource management
-
-### Networking & Storage
-- ✅ Services and service discovery
-- ✅ Ingress and routing
-- ✅ Network policies
-- ✅ Persistent volumes and claims
-
-### Security & Compliance
-- ✅ RBAC configuration
-- ✅ Pod security and contexts
-- ✅ Network policies
-- ✅ Secrets management
-- ✅ Audit logging
-
-### Monitoring & Troubleshooting
-- ✅ Prometheus metrics
-- ✅ Logging and aggregation
-- ✅ Distributed tracing
-- ✅ Debugging techniques
-
-### Modern DevOps
-- ✅ Helm charts
-- ✅ Kustomize
-- ✅ GitOps practices
-- ✅ ArgoCD
-- ✅ CI/CD integration
-
-## 📋 Plugin Structure
-
-```
-custom-plugin-kubernetes/
-├── .claude-plugin/
-│   └── plugin.json                 # Plugin manifest
-│
-├── agents/ (7 specialized agents)
-│   ├── 01-cluster-admin.md
-│   ├── 02-container-runtime.md
-│   ├── 03-deployment-orchestration.md
-│   ├── 04-storage-networking.md
-│   ├── 05-security-rbac.md
-│   ├── 06-monitoring-observability.md
-│   └── 07-development-gitops.md
-│
-├── commands/ (4 slash commands)
-│   ├── quickstart.md
-│   ├── cluster-setup.md
-│   ├── troubleshoot.md
-│   └── best-practices.md
-│
-├── skills/ (7 practical skills)
-│   ├── cluster-admin/SKILL.md
-│   ├── docker-containers/SKILL.md
-│   ├── deployments/SKILL.md
-│   ├── storage-networking/SKILL.md
-│   ├── security/SKILL.md
-│   ├── monitoring/SKILL.md
-│   └── gitops/SKILL.md
-│
-├── hooks/
-│   └── hooks.json
-│
-├── scripts/
-│   └── init-plugin.sh
-│
-├── README.md (this file)
-└── CHANGELOG.md
-```
-
-## 🔧 Configuration
-
-### Using the Plugin
-
-```
-# Quick reference
-/quickstart        → Get started with Kubernetes
-/cluster-setup    → Production cluster setup
-/troubleshoot     → Diagnose Kubernetes issues
-/best-practices   → Production best practices
-```
-
-## 📊 Plugin Statistics
-
-| Component | Count | Status |
-|-----------|-------|--------|
-| Agents | 7 | ✅ Complete |
-| Skills | 7 | ✅ Complete |
-| Commands | 4 | ✅ Complete |
-| Learning Hours | 100+ | ✅ Complete |
-| Code Examples | 200+ | ✅ Complete |
-
-## 🚀 Usage Examples
-
-### Start with Basics
-```
-/quickstart
-→ Learn Kubernetes fundamentals
-→ Local cluster setup
-→ First deployment
-```
-
-### Set Up Production Cluster
-```
-/cluster-setup
-→ Choose cluster platform (EKS, GKE, AKS, self-hosted)
-→ Installation guide
-→ Security hardening
-```
-
-### Troubleshoot Issues
-```
-/troubleshoot
-→ Pod issues
-→ Node problems
-→ Networking issues
-→ Storage problems
-```
-
-### Learn Best Practices
-```
-/best-practices
-→ Container image optimization
-→ Deployment patterns
-→ Security practices
-→ Monitoring strategies
-```
-
-## 🎓 Learning Paths
-
-### For Beginners
-1. `/quickstart` - Learn basics
-2. `/cluster-setup` - Set up local cluster
-3. `/best-practices` - Follow best practices
-4. Try deploying sample applications
-
-### For DevOps Engineers
-1. `/cluster-setup` - Production clusters
-2. `/best-practices` - Patterns and anti-patterns
-3. Explore security, monitoring, and GitOps agents
-4. Implement in your environment
-
-### For Platform Teams
-1. All agents and skills
-2. Focus on cluster administration
-3. Security and compliance
-4. Monitoring and observability
-
-## 📖 Documentation
-
-- **plugin.json** - Plugin manifest and configuration
-- **agents/** - Detailed agent documentation
-- **commands/** - Command documentation
-- **skills/** - Practical skill guides
-- **hooks/hooks.json** - Automation configuration
-
-## 🔗 Resources
-
-### Official Resources
-- [Kubernetes Official Docs](https://kubernetes.io/docs/)
-- [Docker Documentation](https://docs.docker.com/)
-- [Helm Documentation](https://helm.sh/docs/)
-- [ArgoCD Documentation](https://argo-cd.readthedocs.io/)
-
-### Learning Platforms
-- [Kubernetes Training](https://kubernetes.io/training/)
-- [Linux Academy](https://linuxacademy.com/)
-- [A Cloud Guru](https://acloudguru.com/)
-
-### Certifications
-- CKA (Certified Kubernetes Administrator)
-- CKAD (Certified Kubernetes Application Developer)
-- CKS (Certified Kubernetes Security Specialist)
-
-## 🤝 Contributing
-
-Contributions welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## 📜 License
-
-MIT License - See [LICENSE](LICENSE)
-
-## 🙋 Support
-
-- **Issues**: [GitHub Issues](https://github.com/pluginagentmarketplace/custom-plugin-kubernetes/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/pluginagentmarketplace/custom-plugin-kubernetes/discussions)
-- **Documentation**: [Claude Code Docs](https://code.claude.com/docs)
-
-## 🎯 Roadmap
-
-- [x] 7 specialized agents
-- [x] 7 practical skills
-- [x] 4 slash commands
-- [x] 100+ code examples
-- [ ] Video tutorials
-- [ ] Interactive labs
-- [ ] Certification prep
-- [ ] Community showcase
+<!-- Quick CTA Row -->
+[📦 **Install Now**](#-quick-start) · [🤖 **Explore Agents**](#-agents) · [📖 **Documentation**](#-documentation) · [⭐ **Star this repo**](https://github.com/pluginagentmarketplace/custom-plugin-kubernetes)
 
 ---
 
-**Start your Kubernetes mastery journey today with `/quickstart`! 🚀**
+### What is this?
+
+> **Kubernetes Assistant** is a Claude Code plugin with **7 agents** and **7 skills** for kubernetes development.
+
+</div>
+
+---
+
+## 📑 Table of Contents
+
+<details>
+<summary>Click to expand</summary>
+
+- [Quick Start](#-quick-start)
+- [Features](#-features)
+- [Agents](#-agents)
+- [Skills](#-skills)
+- [Commands](#-commands)
+- [Documentation](#-documentation)
+- [Contributing](#-contributing)
+- [License](#-license)
+
+</details>
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+
+- Claude Code CLI v2.0.27+
+- Active Claude subscription
+
+### Installation (Choose One)
+
+<details open>
+<summary><strong>Option 1: From Marketplace (Recommended)</strong></summary>
+
+```bash
+# Step 1️⃣ Add the marketplace
+/plugin add marketplace pluginagentmarketplace/custom-plugin-kubernetes
+
+# Step 2️⃣ Install the plugin
+/plugin install kubernetes-assistant@pluginagentmarketplace-kubernetes
+
+# Step 3️⃣ Restart Claude Code
+# Close and reopen your terminal/IDE
+```
+
+</details>
+
+<details>
+<summary><strong>Option 2: Local Installation</strong></summary>
+
+```bash
+# Clone the repository
+git clone https://github.com/pluginagentmarketplace/custom-plugin-kubernetes.git
+cd custom-plugin-kubernetes
+
+# Load locally
+/plugin load .
+
+# Restart Claude Code
+```
+
+</details>
+
+### ✅ Verify Installation
+
+After restart, you should see these agents:
+
+```
+kubernetes-assistant:06-monitoring-observability
+kubernetes-assistant:01-cluster-admin
+kubernetes-assistant:03-deployment-orchestration
+kubernetes-assistant:05-security-rbac
+kubernetes-assistant:04-storage-networking
+... and 2 more
+```
+
+---
+
+## ✨ Features
+
+| Feature | Description |
+|---------|-------------|
+| 🤖 **7 Agents** | Specialized AI agents for kubernetes tasks |
+| 🛠️ **7 Skills** | Reusable capabilities with Golden Format |
+| ⌨️ **4 Commands** | Quick slash commands |
+| 🔄 **SASMP v1.3.0** | Full protocol compliance |
+
+---
+
+## 🤖 Agents
+
+### 7 Specialized Agents
+
+| # | Agent | Purpose |
+|---|-------|---------|
+| 1 | **06-monitoring-observability** | Specialist in observability, monitoring, logging, metrics, a |
+| 2 | **01-cluster-admin** | Expert in Kubernetes cluster setup, management, architecture |
+| 3 | **03-deployment-orchestration** | Expert in Kubernetes deployments, StatefulSets, DaemonSets,  |
+| 4 | **05-security-rbac** | Expert in Kubernetes security, RBAC, network policies, and c |
+| 5 | **04-storage-networking** | Specialist in persistent storage, networking, service mesh,  |
+| 6 | **07-development-gitops** | Expert in development workflows, CI/CD integration, Helm, an |
+| 7 | **02-container-runtime** | Specialist in Docker, container runtimes, image management,  |
+
+---
+
+## 🛠️ Skills
+
+### Available Skills
+
+| Skill | Description | Invoke |
+|-------|-------------|--------|
+| `security` | Master Kubernetes security, RBAC, network policies, pod secu | `Skill("kubernetes-assistant:security")` |
+| `storage-networking` | Master Kubernetes storage management and networking architec | `Skill("kubernetes-assistant:storage-networking")` |
+| `gitops` | Master GitOps practices, CI/CD integration, Helm charts, Kus | `Skill("kubernetes-assistant:gitops")` |
+| `monitoring` | Master Kubernetes observability, monitoring with Prometheus, | `Skill("kubernetes-assistant:monitoring")` |
+| `docker-containers` | Master Docker containerization, image building, optimization | `Skill("kubernetes-assistant:docker-containers")` |
+| `cluster-admin` | Master Kubernetes cluster administration, from initial setup | `Skill("kubernetes-assistant:cluster-admin")` |
+| `deployments` | Master Kubernetes Deployments, StatefulSets, DaemonSets, and | `Skill("kubernetes-assistant:deployments")` |
+
+---
+
+## ⌨️ Commands
+
+| Command | Description |
+|---------|-------------|
+| `/troubleshoot` | Kubernetes Troubleshooting Guide |
+| `/best-practices` | practices - Kubernetes Best Practices |
+| `/quickstart` | Get Started with Kubernetes |
+| `/cluster-setup` | setup - Production Cluster Setup |
+
+---
+
+## 📚 Documentation
+
+| Document | Description |
+|----------|-------------|
+| [CHANGELOG.md](CHANGELOG.md) | Version history |
+| [CONTRIBUTING.md](CONTRIBUTING.md) | How to contribute |
+| [LICENSE](LICENSE) | License information |
+
+---
+
+## 📁 Project Structure
+
+<details>
+<summary>Click to expand</summary>
+
+```
+custom-plugin-kubernetes/
+├── 📁 .claude-plugin/
+│   ├── plugin.json
+│   └── marketplace.json
+├── 📁 agents/              # 7 agents
+├── 📁 skills/              # 7 skills (Golden Format)
+├── 📁 commands/            # 4 commands
+├── 📁 hooks/
+├── 📄 README.md
+├── 📄 CHANGELOG.md
+└── 📄 LICENSE
+```
+
+</details>
+
+---
+
+## 📅 Metadata
+
+| Field | Value |
+|-------|-------|
+| **Version** | 1.0.0 |
+| **Last Updated** | 2025-12-29 |
+| **Status** | Production Ready |
+| **SASMP** | v1.3.0 |
+| **Agents** | 7 |
+| **Skills** | 7 |
+| **Commands** | 4 |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please read our [Contributing Guide](CONTRIBUTING.md).
+
+1. Fork the repository
+2. Create your feature branch
+3. Follow the Golden Format for new skills
+4. Submit a pull request
+
+---
+
+## ⚠️ Security
+
+> **Important:** This repository contains third-party code and dependencies.
+>
+> - ✅ Always review code before using in production
+> - ✅ Check dependencies for known vulnerabilities
+> - ✅ Follow security best practices
+> - ✅ Report security issues privately via [Issues](../../issues)
+
+---
+
+## 📝 License
+
+Copyright © 2025 **Dr. Umit Kacar** & **Muhsin Elcicek**
+
+Custom License - See [LICENSE](LICENSE) for details.
+
+---
+
+## 👥 Contributors
+
+<table>
+<tr>
+<td align="center">
+<strong>Dr. Umit Kacar</strong><br/>
+Senior AI Researcher & Engineer
+</td>
+<td align="center">
+<strong>Muhsin Elcicek</strong><br/>
+Senior Software Architect
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+**Made with ❤️ for the Claude Code Community**
+
+[![GitHub](https://img.shields.io/badge/GitHub-pluginagentmarketplace-black?style=for-the-badge&logo=github)](https://github.com/pluginagentmarketplace)
+
+</div>

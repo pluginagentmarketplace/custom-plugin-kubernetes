@@ -1,3 +1,9 @@
+---
+name: quickstart
+description: Get Started with Kubernetes
+allowed-tools: Read
+---
+
 # /quickstart - Get Started with Kubernetes
 
 Start your Kubernetes journey with fundamentals and best practices.

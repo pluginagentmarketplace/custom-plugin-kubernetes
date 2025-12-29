@@ -1,3 +1,9 @@
+---
+name: troubleshoot
+description: Kubernetes Troubleshooting Guide
+allowed-tools: Read
+---
+
 # /troubleshoot - Kubernetes Troubleshooting Guide
 
 Diagnose and resolve common Kubernetes issues.

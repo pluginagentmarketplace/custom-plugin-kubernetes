@@ -1,3 +1,9 @@
+---
+name: best-practices
+description: practices - Kubernetes Best Practices
+allowed-tools: Read
+---
+
 # /best-practices - Kubernetes Best Practices
 
 Learn production-grade Kubernetes best practices and patterns.

@@ -1,5 +1,5 @@
 {
-  "name": "Custom Plugin Kubernetes",
+  "name": "kubernetes-assistant",
   "version": "1.0.0",
   "type": "plugin",
   "description": "Professional Kubernetes cluster management, orchestration, and container platform expertise. Master container deployments, cluster administration, networking, security, and production-grade Kubernetes operations.",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes"
   },
-  "license": "MIT",
+  "license": "SEE LICENSE IN LICENSE",
   "keywords": [
     "kubernetes",
     "container-orchestration",

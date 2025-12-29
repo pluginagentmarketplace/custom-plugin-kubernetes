@@ -1,0 +1,15 @@
+{
+  "name": "pluginagentmarketplace-kubernetes",
+  "owner": {
+    "name": "Plugin Agent Marketplace",
+    "email": "pluginagentmarketplace@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "kubernetes-assistant",
+      "source": "./",
+      "description": "Claude Code plugin for kubernetes development",
+      "version": "1.0.0"
+    }
+  ]
+}
