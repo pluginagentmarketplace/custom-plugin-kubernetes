@@ -1,10 +1,13 @@
 {
   "name": "kubernetes-assistant",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "type": "plugin",
-  "description": "Professional Kubernetes cluster management, orchestration, and container platform expertise. Master container deployments, cluster administration, networking, security, and production-grade Kubernetes operations.",
+  "description": "Production-grade Kubernetes cluster management, orchestration, and container platform expertise. Master container deployments, cluster administration, networking, security, service mesh, GitOps, and enterprise-grade Kubernetes operations.",
+  "sasmp_version": "1.3.0",
+  "eqhm_enabled": true,
   "author": {
-    "name": "Custom Plugin Team",
+    "name": "Plugin Agent Marketplace",
+    "email": "pluginagentmarketplace@gmail.com",
     "url": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes"
   },
   "homepage": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes",
@@ -21,7 +24,15 @@
     "cluster-management",
     "containerization",
     "cloud-native",
-    "production"
+    "production",
+    "service-mesh",
+    "istio",
+    "gitops",
+    "argocd",
+    "helm",
+    "observability",
+    "security",
+    "multi-cluster"
   ],
   "commands": [
     {
@@ -45,67 +56,124 @@
     {
       "name": "Cluster Administration & Architecture",
       "file": "agents/01-cluster-admin.md",
-      "description": "Expert in Kubernetes cluster setup, management, architecture, and operational excellence"
+      "description": "Expert in Kubernetes cluster setup, management, architecture, and operational excellence",
+      "capabilities": ["cluster-management", "etcd", "upgrades", "disaster-recovery"]
     },
     {
       "name": "Container Runtime & Docker",
       "file": "agents/02-container-runtime.md",
-      "description": "Specialist in Docker, container runtimes, image management, and container technologies"
+      "description": "Specialist in Docker, container runtimes, image management, and container technologies",
+      "capabilities": ["docker", "containerd", "image-building", "registry-management"]
     },
     {
       "name": "Deployment & Orchestration",
       "file": "agents/03-deployment-orchestration.md",
-      "description": "Expert in Kubernetes deployments, StatefulSets, DaemonSets, and workload orchestration"
+      "description": "Expert in Kubernetes deployments, StatefulSets, DaemonSets, and workload orchestration",
+      "capabilities": ["deployments", "statefulsets", "rollout-strategies", "hpa", "vpa"]
     },
     {
       "name": "Storage & Networking",
       "file": "agents/04-storage-networking.md",
-      "description": "Specialist in persistent storage, networking, service mesh, and cluster communication"
+      "description": "Specialist in persistent storage, networking, service mesh, and cluster communication",
+      "capabilities": ["csi", "pvc", "cni", "network-policies", "gateway-api"]
     },
     {
       "name": "Security & RBAC",
       "file": "agents/05-security-rbac.md",
-      "description": "Expert in Kubernetes security, RBAC, network policies, and compliance"
+      "description": "Expert in Kubernetes security, RBAC, network policies, and compliance",
+      "capabilities": ["rbac", "pss", "opa", "kyverno", "secrets-management"]
     },
     {
       "name": "Monitoring & Observability",
       "file": "agents/06-monitoring-observability.md",
-      "description": "Specialist in observability, monitoring, logging, metrics, and distributed tracing"
+      "description": "Specialist in observability, monitoring, logging, metrics, and distributed tracing",
+      "capabilities": ["prometheus", "grafana", "loki", "opentelemetry", "slo-alerting"]
     },
     {
       "name": "Development & GitOps",
       "file": "agents/07-development-gitops.md",
-      "description": "Expert in development workflows, CI/CD integration, Helm, and GitOps practices"
+      "description": "Expert in development workflows, CI/CD integration, Helm, and GitOps practices",
+      "capabilities": ["argocd", "helm", "kustomize", "github-actions", "progressive-delivery"]
+    },
+    {
+      "name": "Service Mesh Expert",
+      "file": "agents/08-service-mesh-expert.md",
+      "description": "Specialist in service mesh implementation with Istio, Linkerd, traffic management, and zero-trust networking",
+      "capabilities": ["istio", "linkerd", "mtls", "traffic-management", "circuit-breaking"]
     }
   ],
   "skills": [
     {
       "name": "cluster-admin",
-      "file": "skills/cluster-admin/SKILL.md"
+      "file": "skills/cluster-admin/SKILL.md",
+      "bonded_agent": "01-cluster-admin",
+      "description": "Cluster lifecycle management, HA, etcd backup, upgrades"
     },
     {
       "name": "docker-containers",
-      "file": "skills/docker-containers/SKILL.md"
+      "file": "skills/docker-containers/SKILL.md",
+      "bonded_agent": "01-cluster-admin",
+      "description": "Container image building, optimization, security scanning"
     },
     {
       "name": "deployments",
-      "file": "skills/deployments/SKILL.md"
+      "file": "skills/deployments/SKILL.md",
+      "bonded_agent": "03-deployment-orchestration",
+      "description": "Deployment strategies, HPA, PDB, Argo Rollouts"
     },
     {
       "name": "storage-networking",
-      "file": "skills/storage-networking/SKILL.md"
+      "file": "skills/storage-networking/SKILL.md",
+      "bonded_agent": "04-storage-networking",
+      "description": "CSI drivers, Gateway API, NetworkPolicy, CNI"
     },
     {
       "name": "security",
-      "file": "skills/security/SKILL.md"
+      "file": "skills/security/SKILL.md",
+      "bonded_agent": "05-security-rbac",
+      "description": "RBAC, PSS, Kyverno, External Secrets Operator"
     },
     {
       "name": "monitoring",
-      "file": "skills/monitoring/SKILL.md"
+      "file": "skills/monitoring/SKILL.md",
+      "bonded_agent": "06-monitoring-observability",
+      "description": "Prometheus, Loki, OpenTelemetry, SLO-based alerting"
     },
     {
       "name": "gitops",
-      "file": "skills/gitops/SKILL.md"
+      "file": "skills/gitops/SKILL.md",
+      "bonded_agent": "07-development-gitops",
+      "description": "ArgoCD, Kustomize, GitHub Actions CI/CD"
+    },
+    {
+      "name": "helm",
+      "file": "skills/helm/SKILL.md",
+      "bonded_agent": "07-development-gitops",
+      "description": "Helm chart development, values schema, release management"
+    },
+    {
+      "name": "troubleshooting",
+      "file": "skills/troubleshooting/SKILL.md",
+      "bonded_agent": "01-cluster-admin",
+      "description": "Pod debugging, log analysis, network diagnosis"
+    },
+    {
+      "name": "multi-cluster",
+      "file": "skills/multi-cluster/SKILL.md",
+      "bonded_agent": "01-cluster-admin",
+      "description": "Cluster federation, Cilium Mesh, Velero DR"
+    },
+    {
+      "name": "cost-optimization",
+      "file": "skills/cost-optimization/SKILL.md",
+      "bonded_agent": "01-cluster-admin",
+      "description": "VPA, KEDA, Kubecost, resource right-sizing"
+    },
+    {
+      "name": "service-mesh",
+      "file": "skills/service-mesh/SKILL.md",
+      "bonded_agent": "08-service-mesh-expert",
+      "description": "Istio, Linkerd, mTLS, traffic management"
     }
   ],
   "hooks": [
@@ -118,6 +186,7 @@
   "capabilities": {
     "multiAgent": true,
     "parallelExecution": true,
-    "skillBased": true
+    "skillBased": true,
+    "agentBonding": true
   }
 }

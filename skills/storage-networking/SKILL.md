@@ -2,163 +2,405 @@
 name: storage-networking
 description: Master Kubernetes storage management and networking architecture. Learn persistent storage, network policies, service discovery, and ingress routing.
 sasmp_version: "1.3.0"
-bonded_agent: 01-cluster-admin
+eqhm_enabled: true
+bonded_agent: 04-storage-networking
 bond_type: PRIMARY_BOND
+capabilities: ["PersistentVolume management", "StorageClass configuration", "CSI drivers", "Network policies", "Service mesh integration", "Ingress controllers", "Gateway API", "CNI plugins"]
+input_schema:
+  type: object
+  properties:
+    action:
+      type: string
+      enum: ["provision", "resize", "snapshot", "route", "policy"]
+    resource_type:
+      type: string
+      enum: ["PV", "PVC", "StorageClass", "Service", "Ingress", "NetworkPolicy"]
+output_schema:
+  type: object
+  properties:
+    status:
+      type: string
+    configuration:
+      type: object
 ---
 
 # Storage & Networking
 
-## Quick Start
+## Executive Summary
+Production-grade Kubernetes storage and networking covering persistent storage patterns, CSI driver configuration, CNI plugins, service discovery, and ingress routing. This skill provides deep expertise in building reliable, high-performance data and network infrastructure.
 
-### Persistent Volume Claim
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: app-data
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: fast
-  resources:
-    requests:
-      storage: 10Gi
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: app
-spec:
-  template:
-    spec:
-      containers:
-      - name: app
-        image: myapp:1.0
-        volumeMounts:
-        - name: data
-          mountPath: /data
-      volumes:
-      - name: data
-        persistentVolumeClaim:
-          claimName: app-data
+## Core Competencies
+
+### 1. Storage Architecture
+
+**Storage Stack**
+```
+┌─────────────────────────────────────────────────┐
+│                APPLICATION POD                   │
+│            Volume Mount: /data                  │
+└─────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────┐
+│          PERSISTENT VOLUME CLAIM (PVC)          │
+│         Namespace-scoped storage request        │
+└─────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────┐
+│          PERSISTENT VOLUME (PV)                 │
+│            Cluster-wide resource                │
+└─────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────┐
+│              CSI DRIVER                         │
+│    aws-ebs-csi, csi-driver-nfs, etc.           │
+└─────────────────────────────────────────────────┘
 ```
 
-### Services & Ingress
+**Production StorageClass**
 ```yaml
-# Service
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: fast-ssd
+provisioner: ebs.csi.aws.com
+parameters:
+  type: gp3
+  iops: "5000"
+  throughput: "250"
+  encrypted: "true"
+reclaimPolicy: Retain
+allowVolumeExpansion: true
+volumeBindingMode: WaitForFirstConsumer
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: shared-efs
+provisioner: efs.csi.aws.com
+parameters:
+  provisioningMode: efs-ap
+  fileSystemId: fs-abc123
+reclaimPolicy: Retain
+```
+
+**VolumeSnapshot for Backup**
+```yaml
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotClass
+metadata:
+  name: ebs-snapclass
+driver: ebs.csi.aws.com
+deletionPolicy: Retain
+---
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: db-backup
+spec:
+  volumeSnapshotClassName: ebs-snapclass
+  source:
+    persistentVolumeClaimName: postgresql-data-0
+```
+
+### 2. Networking Architecture
+
+**Network Stack**
+```
+┌─────────────────────────────────────────────────┐
+│              EXTERNAL TRAFFIC                    │
+└─────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────┐
+│         LOAD BALANCER (ALB/NLB)                 │
+└─────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────┐
+│     INGRESS CONTROLLER / GATEWAY API            │
+│         TLS termination, routing                │
+└─────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────┐
+│           KUBERNETES SERVICE                     │
+│      ClusterIP, NodePort, LoadBalancer          │
+└─────────────────────────────────────────────────┘
+                      │
+                      ▼
+┌─────────────────────────────────────────────────┐
+│              CNI PLUGIN                          │
+│     Cilium, Calico, AWS VPC CNI                 │
+└─────────────────────────────────────────────────┘
+```
+
+**Service Configuration**
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
-  name: app-service
+  name: api-server
+  namespace: production
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
-    app: myapp
+    app.kubernetes.io/name: api-server
   ports:
-  - port: 80
+  - name: http
+    port: 80
     targetPort: 8080
+  - name: grpc
+    port: 9090
+    targetPort: 9090
+```
 
-# Ingress
+### 3. Ingress & Gateway API
+
+**Production Ingress**
+```yaml
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: app-ingress
+  name: api-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+    nginx.ingress.kubernetes.io/limit-rps: "100"
+    cert-manager.io/cluster-issuer: "letsencrypt-prod"
 spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - api.example.com
+    secretName: api-tls
   rules:
-  - host: app.example.com
+  - host: api.example.com
     http:
       paths:
-      - path: /
+      - path: /v1
         pathType: Prefix
         backend:
           service:
-            name: app-service
+            name: api-v1
             port:
               number: 80
 ```
 
-## Core Concepts
-
-### Storage Classes
-```bash
-# List storage classes
-kubectl get storageclass
-
-# Create storage class
-kubectl create -f - <<EOF
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
+**Gateway API**
+```yaml
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
 metadata:
-  name: fast
-provisioner: kubernetes.io/aws-ebs
-parameters:
-  type: gp3
-EOF
+  name: production-gateway
+spec:
+  gatewayClassName: istio
+  listeners:
+  - name: https
+    hostname: "*.example.com"
+    port: 443
+    protocol: HTTPS
+    tls:
+      mode: Terminate
+      certificateRefs:
+      - name: wildcard-tls
+---
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: api-routes
+spec:
+  parentRefs:
+  - name: production-gateway
+  hostnames:
+  - "api.example.com"
+  rules:
+  - matches:
+    - path:
+        type: PathPrefix
+        value: /api/v1
+    backendRefs:
+    - name: api-v1
+      port: 80
+      weight: 90
+    - name: api-v1-canary
+      port: 80
+      weight: 10
 ```
 
-### Services
-- **ClusterIP**: Internal networking only
-- **NodePort**: External access via node port
-- **LoadBalancer**: Cloud load balancer
-- **ExternalName**: DNS alias
+### 4. Network Policies
 
-### Networking Policies
+**Zero-Trust Architecture**
 ```yaml
+# Default deny all
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: deny-all
+  name: default-deny-all
+  namespace: production
 spec:
   podSelector: {}
   policyTypes:
   - Ingress
   - Egress
 ---
+# Allow DNS
 apiVersion: networking.k8s.io/v1
 kind: NetworkPolicy
 metadata:
-  name: allow-app
+  name: allow-dns
+  namespace: production
+spec:
+  podSelector: {}
+  policyTypes:
+  - Egress
+  egress:
+  - to:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: kube-system
+      podSelector:
+        matchLabels:
+          k8s-app: kube-dns
+    ports:
+    - protocol: UDP
+      port: 53
+---
+# API server policy
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: api-server-policy
+  namespace: production
 spec:
   podSelector:
     matchLabels:
-      app: myapp
+      app: api-server
   policyTypes:
   - Ingress
   - Egress
   ingress:
   - from:
-    - podSelector:
+    - namespaceSelector:
         matchLabels:
-          role: frontend
+          kubernetes.io/metadata.name: ingress-nginx
+    ports:
+    - protocol: TCP
+      port: 8080
   egress:
   - to:
     - podSelector:
         matchLabels:
-          role: database
+          app: postgresql
+    ports:
+    - protocol: TCP
+      port: 5432
 ```
 
-## Advanced Topics
+### 5. CNI Comparison
 
-### Service Mesh
-- Traffic management
-- Load balancing
-- Retry policies
-- Circuit breaking
-- Distributed tracing
+```
+┌─────────────┬─────────────┬─────────────┬─────────────┐
+│ Feature     │ Cilium      │ Calico      │ AWS VPC CNI │
+├─────────────┼─────────────┼─────────────┼─────────────┤
+│ Performance │ Excellent   │ Very Good   │ Excellent   │
+│ L7 Policy   │ ✓ (native)  │ Via Envoy   │ ✗           │
+│ eBPF        │ ✓           │ ✓ (option)  │ ✗           │
+│ Encryption  │ WireGuard   │ WireGuard   │ VPC native  │
+│ Observ.     │ Hubble      │ Basic       │ CloudWatch  │
+└─────────────┴─────────────┴─────────────┴─────────────┘
+```
 
-### Advanced Storage
-- Stateful applications
-- Database volumes
-- Backup and restore
-- Cross-AZ replication
+## Integration Patterns
 
-### Network Architecture
-- Multi-cluster networking
-- Cross-namespace policies
-- Network plugin selection
-- Performance optimization
+### Uses skill: **cluster-admin**
+- Node storage configuration
+- CNI deployment
+
+### Coordinates with skill: **security**
+- Network policy enforcement
+- mTLS configuration
+
+### Works with skill: **monitoring**
+- Network metrics
+- Storage monitoring
+
+## Troubleshooting Guide
+
+### Decision Tree: Storage Issues
+
+```
+Storage Problem?
+│
+├── PVC Pending
+│   ├── Check StorageClass exists
+│   ├── Check provisioner running
+│   └── WaitForFirstConsumer → Schedule pod
+│
+├── Pod can't mount
+│   ├── Already attached → Force detach
+│   ├── Permission denied → Check fsGroup
+│   └── Filesystem error → Resize PVC
+│
+└── Performance issues
+    ├── Check IOPS limits
+    └── Use faster StorageClass
+```
+
+### Decision Tree: Network Issues
+
+```
+Network Problem?
+│
+├── Service not reachable
+│   ├── No endpoints → Selector mismatch
+│   ├── DNS not resolving → CoreDNS
+│   └── Timeout → NetworkPolicy
+│
+├── Ingress not working
+│   ├── 404 → Path mismatch
+│   ├── 502 → Backend not ready
+│   └── TLS error → Certificate
+│
+└── Pod-to-pod fails
+    ├── Check NetworkPolicy
+    └── Check CNI pods
+```
+
+### Debug Commands
+
+```bash
+# Storage
+kubectl get pv,pvc -A
+kubectl describe pvc <name>
+kubectl get storageclass
+
+# Network
+kubectl get svc,endpoints,ingress -A
+kubectl run debug --rm -it --image=nicolaka/netshoot -- nslookup <svc>
+kubectl get networkpolicy -A
+```
+
+## Common Challenges & Solutions
+
+| Challenge | Solution |
+|-----------|----------|
+| PVC Pending | Check StorageClass, provisioner |
+| Volume timeout | Check node health, force detach |
+| Ingress 502 | Check backend health |
+| DNS failures | Verify CoreDNS, egress policy |
+
+## Success Criteria
+
+| Metric | Target |
+|--------|--------|
+| PVC provision time | <30s |
+| Storage availability | 99.99% |
+| Service latency | <10ms |
+| Network policy coverage | 100% |
 
 ## Resources
 - [Kubernetes Storage](https://kubernetes.io/docs/concepts/storage/)
 - [Networking](https://kubernetes.io/docs/concepts/services-networking/)
-- [Ingress Controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
+- [Gateway API](https://gateway-api.sigs.k8s.io/)
