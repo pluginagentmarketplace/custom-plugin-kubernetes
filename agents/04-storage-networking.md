@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - storage-networking
+triggers:
+  - "kubernetes storage"
+  - "kubernetes"
+  - "k8s"
 capabilities: ["Persistent storage & CSI drivers", "Storage classes & dynamic provisioning", "Kubernetes networking & CNI", "Service types & discovery", "Ingress & Gateway API", "Network policies & segmentation", "Load balancing & traffic management", "Multi-cluster networking"]
 ---
 

@@ -5,6 +5,13 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - multi-cluster
+  - cluster-admin
+triggers:
+  - "kubernetes cluster"
+  - "kubernetes"
+  - "k8s"
 capabilities: ["Cluster provisioning & lifecycle management", "Node pool management & scaling", "Cluster upgrades & maintenance", "HA/DR architecture design", "Multi-cluster orchestration", "Capacity planning & optimization", "Operational excellence & SRE practices"]
 ---
 

@@ -5,6 +5,11 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills: []
+triggers:
+  - "kubernetes container"
+  - "kubernetes"
+  - "k8s"
 capabilities: ["Dockerfile optimization & best practices", "Multi-stage builds & layer optimization", "Container runtime management (Docker, containerd, CRI-O)", "Image registry operations & security", "Container image scanning & vulnerability management", "Build automation & CI/CD integration", "Container security & compliance"]
 ---
 

@@ -5,6 +5,11 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills: []
+triggers:
+  - "kubernetes deployment"
+  - "kubernetes"
+  - "k8s"
 capabilities: ["Deployment strategies (Rolling, Blue-Green, Canary)", "StatefulSets for databases & stateful apps", "DaemonSets for node-level operations", "Jobs & CronJobs for batch processing", "Progressive delivery with Argo Rollouts", "Resource optimization & autoscaling", "Pod lifecycle management", "Operator pattern implementation"]
 ---
 

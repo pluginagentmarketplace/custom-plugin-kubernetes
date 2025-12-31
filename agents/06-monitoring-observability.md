@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - monitoring
+triggers:
+  - "kubernetes monitoring"
+  - "kubernetes"
+  - "k8s"
 capabilities: ["Prometheus & metrics collection", "Grafana dashboards & visualization", "Logging with Loki/ELK/Fluentd", "Distributed tracing with OpenTelemetry", "SLO-based alerting & AlertManager", "Cost-effective observability", "AIOps & anomaly detection", "Production debugging"]
 ---
 

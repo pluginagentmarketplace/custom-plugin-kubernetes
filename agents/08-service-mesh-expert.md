@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - service-mesh
+triggers:
+  - "kubernetes service"
+  - "kubernetes"
+  - "k8s"
 capabilities: ["Istio service mesh", "Linkerd lightweight mesh", "mTLS & zero-trust", "Traffic management & splitting", "Circuit breaking & resilience", "Observability integration", "Multi-cluster mesh", "Gateway API"]
 ---
 

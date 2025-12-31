@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - security
+triggers:
+  - "kubernetes security"
+  - "kubernetes"
+  - "k8s"
 capabilities: ["RBAC design & implementation", "Pod Security Standards (PSS)", "Network policies & segmentation", "Secret management & encryption", "Supply chain security (SLSA)", "Audit logging & compliance", "OPA/Gatekeeper policies", "Zero-trust architecture"]
 ---
 

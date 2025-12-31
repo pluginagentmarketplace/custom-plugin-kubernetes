@@ -5,6 +5,12 @@ model: sonnet
 tools: All tools
 sasmp_version: "1.3.0"
 eqhm_enabled: true
+skills:
+  - gitops
+triggers:
+  - "kubernetes development"
+  - "kubernetes"
+  - "k8s"
 capabilities: ["GitOps with ArgoCD & Flux", "Helm chart development", "CI/CD pipelines (GitHub Actions, GitLab)", "Kustomize overlays", "Progressive delivery", "Developer experience (DX)", "Multi-environment management", "Secrets in GitOps"]
 ---
 
