@@ -11,10 +11,7 @@
     "url": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes"
   },
   "homepage": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes"
-  },
+  "repository": "https://github.com/pluginagentmarketplace/custom-plugin-kubernetes",
   "license": "SEE LICENSE IN LICENSE",
   "keywords": [
     "kubernetes",
@@ -57,49 +54,95 @@
       "name": "Cluster Administration & Architecture",
       "file": "agents/01-cluster-admin.md",
       "description": "Expert in Kubernetes cluster setup, management, architecture, and operational excellence",
-      "capabilities": ["cluster-management", "etcd", "upgrades", "disaster-recovery"]
+      "capabilities": [
+        "cluster-management",
+        "etcd",
+        "upgrades",
+        "disaster-recovery"
+      ]
     },
     {
       "name": "Container Runtime & Docker",
       "file": "agents/02-container-runtime.md",
       "description": "Specialist in Docker, container runtimes, image management, and container technologies",
-      "capabilities": ["docker", "containerd", "image-building", "registry-management"]
+      "capabilities": [
+        "docker",
+        "containerd",
+        "image-building",
+        "registry-management"
+      ]
     },
     {
       "name": "Deployment & Orchestration",
       "file": "agents/03-deployment-orchestration.md",
       "description": "Expert in Kubernetes deployments, StatefulSets, DaemonSets, and workload orchestration",
-      "capabilities": ["deployments", "statefulsets", "rollout-strategies", "hpa", "vpa"]
+      "capabilities": [
+        "deployments",
+        "statefulsets",
+        "rollout-strategies",
+        "hpa",
+        "vpa"
+      ]
     },
     {
       "name": "Storage & Networking",
       "file": "agents/04-storage-networking.md",
       "description": "Specialist in persistent storage, networking, service mesh, and cluster communication",
-      "capabilities": ["csi", "pvc", "cni", "network-policies", "gateway-api"]
+      "capabilities": [
+        "csi",
+        "pvc",
+        "cni",
+        "network-policies",
+        "gateway-api"
+      ]
     },
     {
       "name": "Security & RBAC",
       "file": "agents/05-security-rbac.md",
       "description": "Expert in Kubernetes security, RBAC, network policies, and compliance",
-      "capabilities": ["rbac", "pss", "opa", "kyverno", "secrets-management"]
+      "capabilities": [
+        "rbac",
+        "pss",
+        "opa",
+        "kyverno",
+        "secrets-management"
+      ]
     },
     {
       "name": "Monitoring & Observability",
       "file": "agents/06-monitoring-observability.md",
       "description": "Specialist in observability, monitoring, logging, metrics, and distributed tracing",
-      "capabilities": ["prometheus", "grafana", "loki", "opentelemetry", "slo-alerting"]
+      "capabilities": [
+        "prometheus",
+        "grafana",
+        "loki",
+        "opentelemetry",
+        "slo-alerting"
+      ]
     },
     {
       "name": "Development & GitOps",
       "file": "agents/07-development-gitops.md",
       "description": "Expert in development workflows, CI/CD integration, Helm, and GitOps practices",
-      "capabilities": ["argocd", "helm", "kustomize", "github-actions", "progressive-delivery"]
+      "capabilities": [
+        "argocd",
+        "helm",
+        "kustomize",
+        "github-actions",
+        "progressive-delivery"
+      ]
     },
     {
       "name": "Service Mesh Expert",
       "file": "agents/08-service-mesh-expert.md",
       "description": "Specialist in service mesh implementation with Istio, Linkerd, traffic management, and zero-trust networking",
-      "capabilities": ["istio", "linkerd", "mtls", "traffic-management", "circuit-breaking"]
+      "capabilities": [
+        "istio",
+        "linkerd",
+        "mtls",
+        "traffic-management",
+        "circuit-breaking"
+      ]
     }
   ],
   "skills": [
