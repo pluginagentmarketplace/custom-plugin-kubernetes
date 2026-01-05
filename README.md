@@ -63,7 +63,7 @@
 
 ```bash
 # Step 1️⃣ Add the marketplace
-/plugin add marketplace pluginagentmarketplace/custom-plugin-kubernetes
+/plugin marketplace add pluginagentmarketplace/custom-plugin-kubernetes
 
 # Step 2️⃣ Install the plugin
 /plugin install kubernetes-assistant@pluginagentmarketplace-kubernetes
