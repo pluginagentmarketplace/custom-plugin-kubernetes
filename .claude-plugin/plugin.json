@@ -3,7 +3,6 @@
   "version": "2.0.0",
   "type": "plugin",
   "description": "Production-grade Kubernetes cluster management, orchestration, and container platform expertise. Master container deployments, cluster administration, networking, security, service mesh, GitOps, and enterprise-grade Kubernetes operations.",
-  "sasmp_version": "1.3.0",
   "eqhm_enabled": true,
   "author": {
     "name": "Plugin Agent Marketplace",
